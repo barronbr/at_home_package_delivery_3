@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root to: 'pages#index'
 
   get "/", :controller => "pages", :action => "index"
+  get "/about", :controller => "pages", :action => "about"
 
   # Routes for the Package resource:
   # CREATE
