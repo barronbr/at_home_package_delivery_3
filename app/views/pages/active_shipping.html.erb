@@ -1,0 +1,17 @@
+    <ul>
+      <% @tracking_info.shipment_events.each do |event| %>
+      <li>
+        <%=  "#{event.name} at #{event.location.city}, #{event.location.state} on #{event.time}. #{event.message}" %>
+
+        <% if event.name == "On FedEx vehicle for delivery" %>
+        puts "it worked"
+        <% else %>
+        puts "this didn't work"
+        <% end %>
+
+
+      </li>
+      <% end %>
+
+    </ul>
+

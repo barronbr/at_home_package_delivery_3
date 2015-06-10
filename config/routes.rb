@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get "/", :controller => "pages", :action => "index"
   get "/about", :controller => "pages", :action => "about"
+  get "/hidden", :controller => "pages", :action => "active_shipping"
 
   # Routes for the Package resource:
   # CREATE

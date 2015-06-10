@@ -1,19 +1,6 @@
-class PagesController < ApplicationController
-  skip_before_action :authenticate_user!
-
-  def index
-    if current_user.present?
-      @packages = current_user.packages.all
-      @schedules = current_user.schedules.all
-    else
-      render 'welcome'
-    end
-  end
-
-  def about
-  end
-
-  def active_shipping
+namespace :notifications do
+  desc "TODO"
+  task email: :environment do
 
     Package.all.each do |package|
       fedex = ActiveShipping::FedEx.new(login: ENV["fedex_login"], password: ENV["fedex_password"], key: ENV["fedex_key"], account: ENV["fedex_account"], :test => true)
@@ -31,6 +18,8 @@ class PagesController < ApplicationController
     end
   end
 
-
+desc "TODO"
+task text: :environment do
+end
 
 end
